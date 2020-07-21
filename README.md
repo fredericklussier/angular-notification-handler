@@ -1,6 +1,9 @@
 # AngularNotificationHandler
 
+|               |               |
+|:-------------:|:-------------:|
 [![buddy pipeline](https://app.buddy.works/fredericklussier/angular-notification-handler/pipelines/pipeline/269758/badge.svg?token=2a8064fac4f38ea93407e1bd644ba3433cec0fde984bc244aac571a40ecd9d67 "buddy pipeline")](https://app.buddy.works/fredericklussier/angular-notification-handler/pipelines/pipeline/269758)
+[![Coverage Status](https://coveralls.io/repos/github/fredericklussier/angular-notification-handler/badge.svg?branch=master)](https://coveralls.io/github/fredericklussier/angular-notification-handler?branch=master)
 
 Notification handler is a common angular lib to provide simple notifications, alerts and logging system.
 

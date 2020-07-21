@@ -1,5 +1,7 @@
 # AngularNotificationHandler
 
+[![buddy pipeline](https://app.buddy.works/fredericklussier/angular-notification-handler/pipelines/pipeline/269758/badge.svg?token=2a8064fac4f38ea93407e1bd644ba3433cec0fde984bc244aac571a40ecd9d67 "buddy pipeline")](https://app.buddy.works/fredericklussier/angular-notification-handler/pipelines/pipeline/269758)
+
 Notification handler is a common angular lib to provide simple notifications, alerts and logging system.
 
 It also kept last notifications in a bank, so the user can read refere them later. And can sent some notification and log to a logging system like Firebase analytics events.

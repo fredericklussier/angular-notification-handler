@@ -1,0 +1,7 @@
+{
+  "name": "ng-fire-authentication-sample",
+  "version": "0.0.1",
+  "peerdependencies": {
+    "notification-handler": "^0.0.1"
+  }
+}

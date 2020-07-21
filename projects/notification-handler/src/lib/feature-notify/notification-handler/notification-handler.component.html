@@ -1,0 +1,10 @@
+<div class="container">
+  <div style="margin-left: 8px; margin-right: 8px;">
+    {{ data.message }}
+  </div>
+  <div *ngIf="data.allowDismiss" class="dismiss">
+    <button mat-mini-fab (click)="snackBarRef.dismiss()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

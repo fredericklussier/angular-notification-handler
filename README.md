@@ -1,27 +1,72 @@
 # AngularNotificationHandler
 
+Notification handler is a common angular lib to provide simple notifications, alerts and logging system.
+
+It also kept last notifications in a bank, so the user can read refere them later. And can sent some notification and log to a logging system like Firebase analytics events.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
-## Development server
+## Install
+```
+npm install angular-notification-handler
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
+You need to import the NotificationHandlerModule by adding the following lines to your xyz.module.ts file.
 
-## Code scaffolding
+```javascript
+import { NotificationHandlerModule } from 'notification-handler';
+...
+@NgModule ({...
+  imports: [...,
+    NotificationHandlerModule,
+...]
+})
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add any notification in your code.
+```javascript
+...
+import { NotificationHandlerFacadeService, NotificationStyle } from 'notification-handler';
+...
 
-## Build
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit  {
+  title = 'sample';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  constructor(
+    public notification: NotificationHandlerFacadeService,
+  ){}
 
-## Running unit tests
+  ngOnInit(): void{
+    this.notification.notify({message: 'Greetings', kind: NotificationStyle.success});
+  }
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## API
+```javascript
+import { NotificationHandlerFacadeService, NotificationStyle } from 'notification-handler';
+```
+### Methods
+`notify(notificationInfo: NotificationInfo): void`
 
-## Running end-to-end tests
+displaying a message box to the user.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+to be continued ...
 
-## Further help
+## Theming
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This module use the angular material theming :grin:.
+
+Some extra configuration are needed if you want to use your theme. Just include this:
+
+```scss
+//import lib and component themes
+@import 'notification-handler/notification-handler-lib.theme.scss';
+@include notifier-handler-lib-theme($theme);
+```

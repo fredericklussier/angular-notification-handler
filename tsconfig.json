@@ -6,5 +6,18 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/notification-handler/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/notification-handler/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/sample/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/sample/tsconfig.spec.json"
+    }
+]
 }

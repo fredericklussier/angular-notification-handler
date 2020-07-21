@@ -1,0 +1,5 @@
+@import 'src/lib/feature-notify/notification-handler.component.theme.scss';
+
+@mixin notifier-handler-lib-theme($app-theme) {
+  @include notification-theme($app-theme);
+}

@@ -1,0 +1,54 @@
+@import "~@angular/material/theming";
+
+@mixin notification-theme($theme) {
+
+  $notification-styles: (
+    default: (
+      icon: "\e88e  ",
+      color: mat-color(map-get($theme, primary), default)
+    ),
+    info: (
+      icon: "\e88e  ",
+      color: mat-color(map-get($theme, accent), default)
+    ),
+    success: (
+      icon: "\e86c  ",
+      color: mat-color(mat-palette($mat-green), 400)
+    ),
+    warning: (
+      icon: "\e002  ",
+      color: mat-color(mat-palette($mat-yellow), 400)
+    ),
+    error: (
+      icon: "\e000  ",
+      color:  mat-color(map-get($theme, warn), default)
+    )
+  );
+
+  @each $selectorName, $style in $notification-styles{
+    .#{$selectorName}-notification-overlay {
+      border-left: 4px solid;
+      &::before {
+        font-family: "Material Icons";
+        float: left;
+        font-size: 28px;
+        // because we want icon to be middle
+        display: flex;
+        height: 100%;
+        align-items: center;
+        // because we want spaces to be considered in content
+        white-space: pre;
+      }
+    }
+  }
+
+  @each $nom, $style in $notification-styles {
+    .#{$nom}-notification-overlay {
+      border-left-color: map-get($style, color);
+      &::before {
+        content: map-get($style, icon);
+        color: map-get($style, color);
+      }
+    }
+  }
+}

@@ -87,7 +87,6 @@ describe('NotificationService', () => {
       name: 'warning',
       data: {
         message: 'this is a warning message',
-        allowDismiss: true,
         kind: NotificationStyle.warn,
       },
       expected: {

@@ -26,43 +26,39 @@ describe('LoggingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('log the message when given a message and requesting to log aa information', () => {
-    const message = 'message to log';
-    const expected = `Info: ${fixedDate.toLocaleString()}: LoggingService: ${message}`;
-    const consoleSpy = spyOn<any>(console, 'log');
+  [
+    {
+      name: 'log information',
+      message: 'message to log',
+      when: (message: string) => service.logInformation(message),
+      methodeToSpy: 'log',
+      expected: `Info: ${fixedDate.toLocaleString()}: LoggingService: message to log`
+    }, {
+      name: 'logIt information',
+      message: 'message to log',
+      when: (message: string) => service.logIt(message),
+      methodeToSpy: 'log',
+      expected: `${fixedDate.toLocaleString()}: LoggingService: message to log`
+    }, {
+      name: 'log error',
+      message: 'error to log',
+      when: (message: string) => service.logError(message),
+      methodeToSpy: 'error',
+      expected: `${fixedDate.toLocaleString()}: LoggingService: error to log`
+    }, {
+      name: 'log warning',
+      message: 'warning to log',
+      when: (message: string) => service.logWarning(message),
+      methodeToSpy: 'warn',
+      expected: `${fixedDate.toLocaleString()}: LoggingService: warning to log`
+    }
+  ].forEach((test) => {
+    it(`${test.name} when given a message and requesting to ${test.methodeToSpy}`, () => {
+      const consoleSpy = spyOn<any>(console, test.methodeToSpy);
 
-    service.logInformation(message);
+      test.when(test.message);
 
-    expect(consoleSpy).toHaveBeenCalledWith(expected);
-  });
-
-  it('log the message when given a message and requesting a log', () => {
-    const message = 'message to log';
-    const expected = `${fixedDate.toLocaleString()}: LoggingService: ${message}`;
-    const consoleSpy = spyOn<any>(console, 'log');
-
-    service.logIt(message);
-
-    expect(consoleSpy).toHaveBeenCalledWith(expected);
-  });
-
-  it('log an error message when given a message and requesting an error', () => {
-    const message = 'message to log';
-    const expected = `${fixedDate.toLocaleString()}: LoggingService: ${message}`;
-    const consoleSpy = spyOn<any>(console, 'error');
-
-    service.logError(message);
-
-    expect(consoleSpy).toHaveBeenCalledWith(expected);
-  });
-
-  it('log a warning message when given a message and requesting a warning', () => {
-    const message = 'message to log';
-    const expected = `${fixedDate.toLocaleString()}: LoggingService: ${message}`;
-    const consoleSpy = spyOn<any>(console, 'warn');
-
-    service.logWarning(message);
-
-    expect(consoleSpy).toHaveBeenCalledWith(expected);
+      expect(consoleSpy).toHaveBeenCalledWith(test.expected);
+    });
   });
 });

@@ -54,43 +54,30 @@ describe('NotificationHandlerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display only the message when given nothing as icon and setting allowDismiss to false', () => {
-    // arrange
-    component.data = {
-      message: 'message to display',
-      allowDismiss: false,
-    };
-    // action
-    fixture.detectChanges();
-
-    // assert
-    expect(nativeElement.querySelectorAll('mat-icon').length).toEqual(0);
-  });
-
-  it('should display dismiss button when given allowDismiss to true', () => {
-    // arrange
-    component.data = {
-      message: 'message to display',
+  [
+    {
+      name: 'display',
       allowDismiss: true,
-    };
-    // action
-    fixture.detectChanges();
-
-    // assert
-    expect(debugElement.queryAll(By.css('div.dismiss')).length).toEqual(1);
-  });
-
-  it('should not display dismiss button when given allowDismiss to false', () => {
-    // arrange
-    component.data = {
-      message: 'message to display',
+      expectedButton: 1
+    },
+    {
+      name: 'not display',
       allowDismiss: false,
-    };
-    // action
-    fixture.detectChanges();
+      expectedButton: 0
+    },
+  ].forEach((test) => {
+    it(`should ${test.name} dismiss button when given allowDismiss to ${test.allowDismiss}`, () => {
+      // arrange
+      component.data = {
+        message: 'message to display',
+        allowDismiss: test.allowDismiss,
+      };
+      // action
+      fixture.detectChanges();
 
-    // assert
-    expect(debugElement.queryAll(By.css('div.dismiss')).length).toEqual(0);
+      // assert
+      expect(debugElement.queryAll(By.css('div.dismiss')).length).toEqual(test.expectedButton);
+    });
   });
 
   it('should display dismiss a close icon in the dismiss zone when given allowDismiss to true', () => {

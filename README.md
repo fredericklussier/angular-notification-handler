@@ -13,9 +13,7 @@ It also kept last notifications in a bank, so the user can read refere them late
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
 ## Install
-```
-npm install angular-notification-handler
-```
+
 
 ## Getting Started
 You need to import the NotificationHandlerModule by adding the following lines to your xyz.module.ts file.

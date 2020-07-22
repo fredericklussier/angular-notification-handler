@@ -97,7 +97,11 @@ describe('NotificationHandlerComponent', () => {
 // this is what it generate
 // <div id="root1" _nghost-a-c36="" ng-version="10.0.3">
 //   <div _ngcontent-a-c36="" fxlayout="row" fxlayoutalign="start center">
-//     <mat-icon _ngcontent-a-c36="" role="img" matsuffix="" class="mat-icon notranslate material-icons mat-primary" aria-hidden="true" ng-reflect-color="primary">
+//     <mat-icon
+//        _ngcontent-a-c36=""
+//        role="img" matsuffix=""
+//        class="mat-icon notranslate material-icons mat-primary"
+//        aria-hidden="true" ng-reflect-color="primary">
 //     error
 //     </mat-icon>
 //     <!--bindings={"ng-reflect-ng-if": "true"}-->

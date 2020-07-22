@@ -29,7 +29,7 @@ export class GlobalErrorHandler implements ErrorHandler {
     notifier.notify({message: errorDesc.message});
 
     // Always log errors
-    logger.logError(errorDesc.message); //errorDesc.stackTrace);
+    logger.logError(errorDesc.message);
   }
 
   private getServerError(error: HttpErrorResponse): ErrorInfo {

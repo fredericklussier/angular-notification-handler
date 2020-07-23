@@ -18,6 +18,7 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage/notification-handler'),
       reports: ['html', 'lcovonly', 'json-summary', 'text-summary'],
+      combineBrowserReports: true,
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],
